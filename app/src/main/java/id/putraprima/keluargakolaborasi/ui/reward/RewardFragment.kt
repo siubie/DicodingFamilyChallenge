@@ -12,7 +12,6 @@ import id.putraprima.keluargakolaborasi.databinding.FragmentRewardBinding
 class RewardFragment : Fragment() {
 
     lateinit var binding : FragmentRewardBinding
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -20,5 +19,4 @@ class RewardFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_reward,container,false);
         return binding.root
     }
-
 }
