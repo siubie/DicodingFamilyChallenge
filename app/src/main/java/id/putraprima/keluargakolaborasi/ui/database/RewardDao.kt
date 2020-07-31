@@ -25,4 +25,5 @@ interface RewardDao {
 
     @Query("Select count(*) as total from reward")
     fun countReward() : LiveData<Int>
+
 }

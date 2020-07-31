@@ -45,9 +45,18 @@
     <fragment
         android:id="@+id/rewardAddFragment"
         android:name="id.putraprima.keluargakolaborasi.ui.reward.RewardAddFragment"
-        android:label="RewardAddFragment" />
+        android:label="RewardAddFragment" >
+        <action
+            android:id="@+id/action_rewardAddFragment_to_rewardFragment"
+            app:destination="@id/rewardFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
     <fragment
         android:id="@+id/rewardEditFragment"
         android:name="id.putraprima.keluargakolaborasi.ui.reward.RewardEditFragment"
-        android:label="RewardEditFragment" />
+        android:label="RewardEditFragment" >
+        <action
+            android:id="@+id/action_rewardEditFragment_to_rewardFragment"
+            app:destination="@id/rewardFragment" />
+    </fragment>
 </navigation>
