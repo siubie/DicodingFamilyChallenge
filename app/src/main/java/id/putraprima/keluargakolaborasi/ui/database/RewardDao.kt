@@ -5,7 +5,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import id.putraprima.keluargakolaborasi.ui.database.Reward
 
 @Dao
 interface RewardDao {
@@ -23,4 +22,7 @@ interface RewardDao {
 
     @Query("Select * from reward order by rewardId DESC")
     fun getAllReward() : LiveData<List<Reward>>
+
+    @Query("Select count(*) as total from reward")
+    fun countReward() : Int
 }

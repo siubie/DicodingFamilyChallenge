@@ -6,8 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import id.putraprima.keluargakolaborasi.R
 import id.putraprima.keluargakolaborasi.databinding.FragmentRewardBinding
+import id.putraprima.keluargakolaborasi.ui.database.KolaborasiDatabase
+import id.putraprima.keluargakolaborasi.ui.database.Reward
 
 class RewardFragment : Fragment() {
 
@@ -17,6 +21,14 @@ class RewardFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_reward,container,false);
+
+        val application = requireNotNull(this.activity).application
+        val dataSource=KolaborasiDatabase.getInstance(application).RewardDao
+        val rewardViewModelFactory =RewardViewModelFactory(dataSource,application)
+        val rewardViewModel = ViewModelProvider(this,rewardViewModelFactory).get(RewardViewModel::class.java)
+        binding.rewardViewModel = rewardViewModel
+        binding.lifecycleOwner = this
+
         return binding.root
     }
 }
