@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import id.putraprima.keluargakolaborasi.R
@@ -27,9 +28,23 @@ class RewardFragment : Fragment() {
         val dataSource=KolaborasiDatabase.getInstance(application).RewardDao
         val rewardViewModelFactory =RewardViewModelFactory(dataSource,application)
         val rewardViewModel = ViewModelProvider(this,rewardViewModelFactory).get(RewardViewModel::class.java)
+
         binding.rewardViewModel = rewardViewModel
         binding.lifecycleOwner = this
 
+        val adapter = RewardAdapter(ListRewardClickListener { item->
+            item.let {
+                rewardViewModel.onRewardClicked()
+            }
+        })
+
+        rewardViewModel.allReward.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                adapter.submitList(it)
+            }
+        })
+
+        binding.rvReward.adapter = adapter
         binding.btnAddReward.setOnClickListener {
             it.findNavController().navigate(RewardFragmentDirections.actionRewardFragmentToRewardAddFragment())
         }

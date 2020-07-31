@@ -26,4 +26,7 @@ interface RewardDao {
     @Query("Select count(*) as total from reward")
     fun countReward() : LiveData<Int>
 
+    @Query("Select * from reward order by rewardId DESC LIMIT 1")
+    fun getLatestReward() : LiveData<Reward>
+
 }

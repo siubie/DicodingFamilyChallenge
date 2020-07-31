@@ -23,6 +23,8 @@ class RewardViewModel(val database: RewardDao, application: Application) :
         get() =_navigateToList
 
     val dataCount: LiveData<Int> = database.countReward()
+    val latestReward: LiveData<Reward> = database.getLatestReward()
+    val allReward : LiveData<List<Reward>> = database.getAllReward()
 
     init{
         currentRewardName.value="soko"
@@ -61,6 +63,10 @@ class RewardViewModel(val database: RewardDao, application: Application) :
 
     fun onNavigatedToList() {
         _navigateToList.value=null
+    }
+
+    fun onRewardClicked(){
+
     }
 
 
