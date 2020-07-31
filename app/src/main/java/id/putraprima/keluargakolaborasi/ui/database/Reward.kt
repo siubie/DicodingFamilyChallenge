@@ -1,4 +1,4 @@
-package id.putraprima.keluargakolaborasi.ui.reward
+package id.putraprima.keluargakolaborasi.ui.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -1,10 +1,11 @@
-package id.putraprima.keluargakolaborasi.ui.reward
+package id.putraprima.keluargakolaborasi.ui.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import id.putraprima.keluargakolaborasi.ui.database.Reward
 
 @Dao
 interface RewardDao {
@@ -15,7 +16,7 @@ interface RewardDao {
     fun update(reward: Reward)
 
     @Query("Select * from reward where rewardId = :key")
-    fun get(key:Long):Reward?
+    fun get(key:Long): Reward?
 
     @Query("Delete From reward")
     fun clear()
