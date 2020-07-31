@@ -15,8 +15,7 @@ class RewardViewModel (val database: RewardDao,application: Application): Androi
     private var reward  = MutableLiveData<Reward?>()
     private var rewards = database.getAllReward()
     private var _dataCount = MutableLiveData<Int>()
-    val dataCount : LiveData<Int>
-        get() = _dataCount
+    val dataCount : LiveData<Int> = database.countReward()
 
     override fun onCleared() {
         super.onCleared()
@@ -27,22 +26,6 @@ class RewardViewModel (val database: RewardDao,application: Application): Androi
         uiScope.launch {
             val newReward = Reward(0L,"soko",10)
             insert(newReward)
-        }
-        onGetRewardCount()
-    }
-    init {
-        onGetRewardCount()
-    }
-
-    private fun onGetRewardCount() {
-        uiScope.launch {
-            _dataCount.value = getRewardCount()
-        }
-    }
-
-    private suspend fun getRewardCount(): Int? {
-        return withContext(Dispatchers.IO) {
-            database.countReward()
         }
     }
 
