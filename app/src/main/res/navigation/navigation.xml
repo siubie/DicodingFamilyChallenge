@@ -24,7 +24,14 @@
         android:id="@+id/rewardFragment"
         android:name="id.putraprima.keluargakolaborasi.ui.reward.RewardFragment"
         android:label="fragment_reward"
-        tools:layout="@layout/fragment_reward" />
+        tools:layout="@layout/fragment_reward" >
+        <action
+            android:id="@+id/action_rewardFragment_to_rewardAddFragment"
+            app:destination="@id/rewardAddFragment" />
+        <action
+            android:id="@+id/action_rewardFragment_to_rewardEditFragment"
+            app:destination="@id/rewardEditFragment" />
+    </fragment>
     <fragment
         android:id="@+id/challengeFragment"
         android:name="id.putraprima.keluargakolaborasi.ui.challenge.ChallengeFragment"
@@ -35,4 +42,12 @@
         android:name="id.putraprima.keluargakolaborasi.ui.statistik.StatistikFragment"
         android:label="fragment_statistik"
         tools:layout="@layout/fragment_statistik" />
+    <fragment
+        android:id="@+id/rewardAddFragment"
+        android:name="id.putraprima.keluargakolaborasi.ui.reward.RewardAddFragment"
+        android:label="RewardAddFragment" />
+    <fragment
+        android:id="@+id/rewardEditFragment"
+        android:name="id.putraprima.keluargakolaborasi.ui.reward.RewardEditFragment"
+        android:label="RewardEditFragment" />
 </navigation>
