@@ -55,4 +55,17 @@ class ChallengeViewModel(val reward: RewardDao, val challenge: ChallengeDao, app
             challenge.insert(item)
         }
     }
+
+    fun onDeleteChallenge(challenge: Challenge){
+        uiScope.launch {
+            deleteChallenge(challenge.challengeId)
+            _navigateToList.value=true
+        }
+    }
+
+    private suspend fun deleteChallenge(challengeId: Long) {
+        withContext(Dispatchers.IO){
+            challenge.deleteById(challengeId)
+        }
+    }
 }

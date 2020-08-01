@@ -44,8 +44,7 @@
         <action
             android:id="@+id/action_challengeFragment_to_challengeDetailFragment"
             app:destination="@id/challengeDetailFragment"
-            app:popUpTo="@id/challengeFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/statistikFragment"
@@ -91,7 +90,9 @@
         android:label="ChallengeDetailFragment" >
         <action
             android:id="@+id/action_challengeDetailFragment_to_challengeFragment2"
-            app:destination="@id/challengeFragment" />
+            app:destination="@id/challengeFragment"
+            app:popUpTo="@id/challengeFragment"
+            app:popUpToInclusive="true" />
         <argument
             android:name="challenge"
             app:argType="id.putraprima.keluargakolaborasi.ui.database.Challenge" />
