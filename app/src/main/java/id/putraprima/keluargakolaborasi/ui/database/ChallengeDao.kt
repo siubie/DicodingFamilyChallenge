@@ -24,7 +24,8 @@ interface ChallengeDao {
     fun clear()
 
     @Query("Select * from challenge order by challengeId DESC")
-    fun getAllReward() : LiveData<List<Challenge>>
+    fun getAll() : LiveData<List<Challenge>>
+
 
     @Query("Select count(*) as total from challenge")
     fun countReward() : LiveData<Int>
