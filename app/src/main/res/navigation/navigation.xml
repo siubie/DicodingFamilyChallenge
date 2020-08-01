@@ -29,9 +29,6 @@
             android:id="@+id/action_rewardFragment_to_rewardAddFragment"
             app:destination="@id/rewardAddFragment" />
         <action
-            android:id="@+id/action_rewardFragment_to_rewardEditFragment"
-            app:destination="@id/rewardEditFragment" />
-        <action
             android:id="@+id/action_rewardFragment_to_rewardDetailFragment"
             app:destination="@id/rewardDetailFragment" />
     </fragment>
@@ -39,7 +36,14 @@
         android:id="@+id/challengeFragment"
         android:name="id.putraprima.keluargakolaborasi.ui.challenge.ChallengeFragment"
         android:label="fragment_challenge"
-        tools:layout="@layout/fragment_challenge" />
+        tools:layout="@layout/fragment_challenge" >
+        <action
+            android:id="@+id/action_challengeFragment_to_challengeAddFragment"
+            app:destination="@id/challengeAddFragment" />
+        <action
+            android:id="@+id/action_challengeFragment_to_challengeDetailFragment"
+            app:destination="@id/challengeDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/statistikFragment"
         android:name="id.putraprima.keluargakolaborasi.ui.statistik.StatistikFragment"
@@ -56,14 +60,6 @@
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
-        android:id="@+id/rewardEditFragment"
-        android:name="id.putraprima.keluargakolaborasi.ui.reward.RewardEditFragment"
-        android:label="RewardEditFragment" >
-        <action
-            android:id="@+id/action_rewardEditFragment_to_rewardFragment"
-            app:destination="@id/rewardFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/rewardDetailFragment"
         android:name="id.putraprima.keluargakolaborasi.ui.reward.RewardDetailFragment"
         android:label="RewardDetailFragment" >
@@ -75,5 +71,21 @@
         <argument
             android:name="reward"
             app:argType="id.putraprima.keluargakolaborasi.ui.database.Reward" />
+    </fragment>
+    <fragment
+        android:id="@+id/challengeAddFragment"
+        android:name="id.putraprima.keluargakolaborasi.ui.challenge.ChallengeAddFragment"
+        android:label="ChallengeAddFragment" >
+        <action
+            android:id="@+id/action_challengeAddFragment_to_challengeFragment"
+            app:destination="@id/challengeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/challengeDetailFragment"
+        android:name="id.putraprima.keluargakolaborasi.ui.challenge.ChallengeDetailFragment"
+        android:label="ChallengeDetailFragment" >
+        <action
+            android:id="@+id/action_challengeDetailFragment_to_challengeFragment2"
+            app:destination="@id/challengeFragment" />
     </fragment>
 </navigation>
