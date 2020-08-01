@@ -14,5 +14,5 @@ data class Reward (
     @ColumnInfo(name = "rewardName")
     var rewardName : String = "",
     @ColumnInfo(name = "rewardPrice")
-    var rewardPrice : Long = 0
+    var rewardPrice : Int = 0
 ) : Parcelable

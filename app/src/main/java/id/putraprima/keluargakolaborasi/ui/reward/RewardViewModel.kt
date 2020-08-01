@@ -34,7 +34,7 @@ class RewardViewModel(val database: RewardDao, application: Application) :
 
     fun onInsertReward() {
         uiScope.launch {
-            val newReward = Reward(0L, currentRewardName.value!!, currentRewardPoint.value!!.toLong())
+            val newReward = Reward(0L, currentRewardName.value!!, currentRewardPoint.value!!.toInt())
             insert(newReward)
             _navigateToList.value = true
         }
