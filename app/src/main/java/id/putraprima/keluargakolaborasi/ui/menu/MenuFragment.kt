@@ -23,7 +23,6 @@ class MenuFragment : Fragment() {
             it.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToRewardFragment())
         }
         binding.btnStatistik.setOnClickListener {
-            it.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToStatistikFragment())
         }
         binding.btnChallenge.setOnClickListener {
             it.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToChallengeFragment())

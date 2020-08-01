@@ -17,8 +17,8 @@
             android:id="@+id/action_menuFragment_to_challengeFragment"
             app:destination="@id/challengeFragment" />
         <action
-            android:id="@+id/action_menuFragment_to_statistikFragment"
-            app:destination="@id/statistikFragment" />
+            android:id="@+id/action_menuFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
     <fragment
         android:id="@+id/rewardFragment"
@@ -46,11 +46,6 @@
             app:destination="@id/challengeDetailFragment"
             app:popUpToInclusive="false" />
     </fragment>
-    <fragment
-        android:id="@+id/statistikFragment"
-        android:name="id.putraprima.keluargakolaborasi.ui.statistik.StatistikFragment"
-        android:label="fragment_statistik"
-        tools:layout="@layout/fragment_statistik" />
     <fragment
         android:id="@+id/rewardAddFragment"
         android:name="id.putraprima.keluargakolaborasi.ui.reward.RewardAddFragment"
@@ -96,5 +91,24 @@
         <argument
             android:name="challenge"
             app:argType="id.putraprima.keluargakolaborasi.ui.database.Challenge" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="id.putraprima.keluargakolaborasi.ui.history.HistoryFragment"
+        android:label="HistoryFragment" >
+        <action
+            android:id="@+id/action_historyFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_historyDetailFragment"
+            app:destination="@id/historyDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyDetailFragment"
+        android:name="id.putraprima.keluargakolaborasi.ui.history.HistoryDetailFragment"
+        android:label="HistoryDetailFragment" >
+        <action
+            android:id="@+id/action_historyDetailFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
 </navigation>
