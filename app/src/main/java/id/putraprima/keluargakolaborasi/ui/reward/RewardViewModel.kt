@@ -25,11 +25,8 @@ class RewardViewModel(val database: RewardDao, application: Application) :
     val dataCount: LiveData<Int> = database.countReward()
     val latestReward: LiveData<Reward> = database.getLatestReward()
     val allReward : LiveData<List<Reward>> = database.getAllReward()
+    val currentReward = MutableLiveData<Reward>()
 
-    init{
-        currentRewardName.value="soko"
-        currentRewardPoint.value = "30"
-    }
     override fun onCleared() {
         super.onCleared()
         rewardViewModelJob.cancel()
@@ -61,13 +58,34 @@ class RewardViewModel(val database: RewardDao, application: Application) :
         }
     }
 
+    fun onDeleteReward(reward : Reward){
+        uiScope.launch {
+            deleteReward(reward.rewardId)
+            _navigateToList.value=true
+        }
+    }
+
+    private suspend fun deleteReward(rewardId: Long) {
+        withContext(Dispatchers.IO){
+            database.deleteById(rewardId)
+        }
+    }
+
     fun onNavigatedToList() {
         _navigateToList.value=null
     }
 
-    fun onRewardClicked(){
+    private val _navigateToDetail = MutableLiveData<Reward>()
 
+    val navigateToDetail
+        get() = _navigateToDetail
+
+    fun onRewardClicked(reward: Reward){
+        currentReward.value = reward
+        _navigateToDetail.value =reward
     }
 
-
+    fun onRewardNavigated(){
+        _navigateToDetail.value = null
+    }
 }

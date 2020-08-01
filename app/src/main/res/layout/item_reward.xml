@@ -6,12 +6,17 @@
         <variable
             name="reward"
             type="id.putraprima.keluargakolaborasi.ui.database.Reward" />
+        <variable
+            name="clickListener"
+            type="id.putraprima.keluargakolaborasi.ui.reward.ListRewardClickListener" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp">
+        android:layout_height="75dp"
+        android:onClick="@{()->clickListener.onClick(reward)}"
+        >
 
         <TextView
             android:id="@+id/txtRewardName"

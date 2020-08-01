@@ -11,6 +11,13 @@ import id.putraprima.keluargakolaborasi.ui.database.Reward
 class RewardAdapter(val clickListener: ListRewardClickListener) :
     ListAdapter<Reward, RewardAdapter.RewardViewHolder>(ListRewardDiffCallback()) {
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RewardViewHolder {
+        return RewardViewHolder.from(parent)
+    }
+
+    override fun onBindViewHolder(holder: RewardViewHolder, position: Int) {
+        holder.bind(getItem(position), clickListener)
+    }
     class RewardViewHolder private constructor(val binding: ItemRewardBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -19,6 +26,7 @@ class RewardAdapter(val clickListener: ListRewardClickListener) :
             clickListener: ListRewardClickListener
         ) {
             binding.reward = item
+            binding.clickListener = clickListener
             binding.executePendingBindings()
         }
 
@@ -32,18 +40,12 @@ class RewardAdapter(val clickListener: ListRewardClickListener) :
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RewardViewHolder {
-        return RewardViewHolder.from(parent)
-    }
 
-    override fun onBindViewHolder(holder: RewardViewHolder, position: Int) {
-        holder.bind(getItem(position), clickListener)
-    }
 
 }
 
 class ListRewardClickListener(val clickListener: (item: Reward) -> Unit) {
-    fun OnClick(item: Reward) = clickListener(item)
+    fun onClick(item: Reward) = clickListener(item)
 }
 
 class ListRewardDiffCallback : DiffUtil.ItemCallback<Reward>() {

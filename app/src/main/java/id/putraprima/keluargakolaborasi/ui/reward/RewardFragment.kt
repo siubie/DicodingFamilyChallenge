@@ -1,6 +1,7 @@
 package id.putraprima.keluargakolaborasi.ui.reward
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -34,13 +35,19 @@ class RewardFragment : Fragment() {
 
         val adapter = RewardAdapter(ListRewardClickListener { item->
             item.let {
-                rewardViewModel.onRewardClicked()
+                rewardViewModel.onRewardClicked(item)
             }
         })
 
         rewardViewModel.allReward.observe(viewLifecycleOwner, Observer {
             it?.let {
                 adapter.submitList(it)
+            }
+        })
+        rewardViewModel.navigateToDetail.observe(viewLifecycleOwner, Observer { item->
+            item?.let {
+                view?.findNavController()!!.navigate(RewardFragmentDirections.actionRewardFragmentToRewardDetailFragment(item))
+                rewardViewModel.onRewardNavigated()
             }
         })
 

@@ -17,6 +17,9 @@ interface RewardDao {
     @Query("Select * from reward where rewardId = :key")
     fun get(key:Long): Reward?
 
+    @Query("DELETE from reward where rewardId = :key")
+    fun deleteById(key:Long)
+
     @Query("Delete From reward")
     fun clear()
 
