@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import com.google.android.material.snackbar.Snackbar
 import id.putraprima.keluargakolaborasi.R
 import id.putraprima.keluargakolaborasi.databinding.FragmentRewardBinding
 import id.putraprima.keluargakolaborasi.ui.database.KolaborasiDatabase
@@ -18,22 +19,25 @@ import id.putraprima.keluargakolaborasi.ui.database.Reward
 
 class RewardFragment : Fragment() {
 
-    lateinit var binding : FragmentRewardBinding
+    lateinit var binding: FragmentRewardBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_reward,container,false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_reward, container, false);
 
         val application = requireNotNull(this.activity).application
-        val dataSource=KolaborasiDatabase.getInstance(application).RewardDao
-        val rewardViewModelFactory =RewardViewModelFactory(dataSource,application)
-        val rewardViewModel = ViewModelProvider(this,rewardViewModelFactory).get(RewardViewModel::class.java)
+        val reward = KolaborasiDatabase.getInstance(application).RewardDao
+        val challenge = KolaborasiDatabase.getInstance(application).ChallengeDao
+        val history = KolaborasiDatabase.getInstance(application).HistoryDao
+        val rewardViewModelFactory = RewardViewModelFactory(reward, challenge, history, application)
+        val rewardViewModel =
+            ViewModelProvider(this, rewardViewModelFactory).get(RewardViewModel::class.java)
 
         binding.rewardViewModel = rewardViewModel
         binding.lifecycleOwner = this
 
-        val adapter = RewardAdapter(ListRewardClickListener { item->
+        val adapter = RewardAdapter(ListRewardClickListener { item ->
             item.let {
                 rewardViewModel.onRewardClicked(item)
             }
@@ -44,16 +48,20 @@ class RewardFragment : Fragment() {
                 adapter.submitList(it)
             }
         })
-        rewardViewModel.navigateToDetail.observe(viewLifecycleOwner, Observer { item->
+        rewardViewModel.navigateToDetail.observe(viewLifecycleOwner, Observer { item ->
             item?.let {
-                view?.findNavController()!!.navigate(RewardFragmentDirections.actionRewardFragmentToRewardDetailFragment(item))
+                view?.findNavController()!!.navigate(
+                    RewardFragmentDirections.actionRewardFragmentToRewardDetailFragment(item)
+                )
                 rewardViewModel.onRewardNavigated()
             }
         })
 
+
         binding.rvReward.adapter = adapter
         binding.btnAddReward.setOnClickListener {
-            it.findNavController().navigate(RewardFragmentDirections.actionRewardFragmentToRewardAddFragment())
+            it.findNavController()
+                .navigate(RewardFragmentDirections.actionRewardFragmentToRewardAddFragment())
         }
 
         return binding.root

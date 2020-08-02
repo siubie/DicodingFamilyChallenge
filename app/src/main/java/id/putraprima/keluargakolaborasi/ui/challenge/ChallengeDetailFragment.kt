@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import com.google.android.material.snackbar.Snackbar
 import id.putraprima.keluargakolaborasi.R
 import id.putraprima.keluargakolaborasi.databinding.FragmentChallengeDetailBinding
 import id.putraprima.keluargakolaborasi.ui.database.KolaborasiDatabase
@@ -27,7 +28,8 @@ class ChallengeDetailFragment : Fragment() {
         val application = requireNotNull(this.activity).application
         val rewardDao= KolaborasiDatabase.getInstance(application).RewardDao
         val challengeDao= KolaborasiDatabase.getInstance(application).ChallengeDao
-        val challengeViewModelFactory = ChallengeViewModelFactory(challengeDao,rewardDao,application)
+        val historyDao= KolaborasiDatabase.getInstance(application).HistoryDao
+        val challengeViewModelFactory = ChallengeViewModelFactory(challengeDao,rewardDao,historyDao,application)
         val challengeViewModel = ViewModelProvider(this,challengeViewModelFactory).get(ChallengeViewModel::class.java)
 
         val args = ChallengeDetailFragmentArgs.fromBundle(requireArguments())
@@ -40,6 +42,20 @@ class ChallengeDetailFragment : Fragment() {
             navigate?.let {
                 view?.findNavController()?.navigate(ChallengeDetailFragmentDirections.actionChallengeDetailFragmentToChallengeFragment2())
                 challengeViewModel.onChallengeNavigated()
+            }
+
+        })
+        challengeViewModel.selesaiChalenge.observe(viewLifecycleOwner, Observer { selesai ->
+            selesai?.let {
+                if (selesai) {
+                    view?.let { view ->
+                        Snackbar.make(
+                            binding.root,
+                            "Berhasil Selesaikan Challenge",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    }
+                }
             }
 
         })

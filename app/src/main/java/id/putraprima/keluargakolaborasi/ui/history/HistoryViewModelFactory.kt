@@ -16,7 +16,7 @@ class HistoryViewModelFactory(
     private val application: Application
 ) : ViewModelProvider.Factory{
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if(modelClass.isAssignableFrom(ChallengeViewModel::class.java)){
+        if(modelClass.isAssignableFrom(HistoryViewModel::class.java)){
             return HistoryViewModel(reward,challenge,history,application) as T
         }
         throw IllegalArgumentException("Unknown ViewModel Class")

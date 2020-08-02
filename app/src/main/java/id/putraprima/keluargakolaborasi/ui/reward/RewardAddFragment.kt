@@ -25,8 +25,10 @@ class RewardAddFragment : Fragment() {
         binding= DataBindingUtil.inflate(inflater,R.layout.fragment_reward_add, container, false)
 
         val application = requireNotNull(this.activity).application
-        val dataSource= KolaborasiDatabase.getInstance(application).RewardDao
-        val rewardViewModelFactory =RewardViewModelFactory(dataSource,application)
+        val reward=KolaborasiDatabase.getInstance(application).RewardDao
+        val challenge=KolaborasiDatabase.getInstance(application).ChallengeDao
+        val history=KolaborasiDatabase.getInstance(application).HistoryDao
+        val rewardViewModelFactory =RewardViewModelFactory(reward,challenge,history,application)
         val rewardViewModel = ViewModelProvider(this,rewardViewModelFactory).get(RewardViewModel::class.java)
 
         binding.rewardViewModel = rewardViewModel

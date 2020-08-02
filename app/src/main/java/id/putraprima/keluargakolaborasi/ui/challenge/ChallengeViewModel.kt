@@ -1,22 +1,25 @@
 package id.putraprima.keluargakolaborasi.ui.challenge
+
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import id.putraprima.keluargakolaborasi.ui.database.Challenge
-import id.putraprima.keluargakolaborasi.ui.database.ChallengeDao
-import id.putraprima.keluargakolaborasi.ui.database.Reward
-import id.putraprima.keluargakolaborasi.ui.database.RewardDao
+import id.putraprima.keluargakolaborasi.ui.database.*
 import kotlinx.coroutines.*
 
-class ChallengeViewModel(val reward: RewardDao, val challenge: ChallengeDao, application: Application) :
+class ChallengeViewModel(
+    val reward: RewardDao,
+    val challenge: ChallengeDao,
+    val history: HistoryDao,
+    application: Application
+) :
     AndroidViewModel(application) {
 
     private var challengeViewModelJob = Job()
     private var uiScope = CoroutineScope(Dispatchers.Main + challengeViewModelJob)
 
     val currentChallenge = MutableLiveData<Challenge>()
-    val challenges : LiveData<List<Challenge>> = challenge.getAll()
+    val challenges: LiveData<List<Challenge>> = challenge.getAll()
 
     private val _navigateToDetail = MutableLiveData<Challenge>()
 
@@ -25,26 +28,29 @@ class ChallengeViewModel(val reward: RewardDao, val challenge: ChallengeDao, app
 
 
     private val _navigateToList = MutableLiveData<Boolean>()
-    val navigateToList : LiveData<Boolean>
-        get() =_navigateToList
+    val navigateToList: LiveData<Boolean>
+        get() = _navigateToList
 
     val currentChallengeName = MutableLiveData<String>()
     val currentChallengePoint = MutableLiveData<String>()
 
     fun onNavigatedToList() {
-        _navigateToList.value=null
+        _navigateToList.value = null
     }
-    fun onChallengeClicked(challenge: Challenge){
+
+    fun onChallengeClicked(challenge: Challenge) {
         currentChallenge.value = challenge
         _navigateToDetail.value = challenge
     }
 
-    fun onChallengeNavigated(){
+    fun onChallengeNavigated() {
         _navigateToDetail.value = null
     }
+
     fun onInsertChallenge() {
         uiScope.launch {
-            val newChallenge = Challenge(0L, currentChallengeName.value!!, currentChallengePoint.value!!.toInt())
+            val newChallenge =
+                Challenge(0L, currentChallengeName.value!!, currentChallengePoint.value!!.toInt())
             insert(newChallenge)
             _navigateToList.value = true
         }
@@ -56,16 +62,34 @@ class ChallengeViewModel(val reward: RewardDao, val challenge: ChallengeDao, app
         }
     }
 
-    fun onDeleteChallenge(challenge: Challenge){
+    fun onDeleteChallenge(challenge: Challenge) {
         uiScope.launch {
             deleteChallenge(challenge.challengeId)
-            _navigateToList.value=true
+            _navigateToList.value = true
         }
     }
 
     private suspend fun deleteChallenge(challengeId: Long) {
-        withContext(Dispatchers.IO){
+        withContext(Dispatchers.IO) {
             challenge.deleteById(challengeId)
+        }
+    }
+
+    private val _selesaiChallenge = MutableLiveData<Boolean>()
+    val selesaiChalenge: LiveData<Boolean>
+        get() = _selesaiChallenge
+
+    fun onSelesaiChallenge(item: Challenge) {
+        uiScope.launch {
+            val historyItem = History(0L, item.challengeName, item.challengePoin)
+            onInsertHistory(historyItem)
+            _selesaiChallenge.value = true
+        }
+    }
+
+    private suspend fun onInsertHistory(item: History) {
+        withContext(Dispatchers.IO) {
+            history.insert(item)
         }
     }
 }

@@ -6,9 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import id.putraprima.keluargakolaborasi.databinding.ItemChallengeBinding
-import id.putraprima.keluargakolaborasi.databinding.ItemRewardBinding
 import id.putraprima.keluargakolaborasi.ui.database.Challenge
-import id.putraprima.keluargakolaborasi.ui.database.Reward
 
 class ChallengeAdapter(val clickListener: ListChallengeClickListener) :
     ListAdapter<Challenge, ChallengeAdapter.ChallengeViewHolder>(ListChallengeDiffCallback()) {
@@ -20,6 +18,7 @@ class ChallengeAdapter(val clickListener: ListChallengeClickListener) :
     override fun onBindViewHolder(holder: ChallengeViewHolder, position: Int) {
         holder.bind(getItem(position), clickListener)
     }
+
     class ChallengeViewHolder private constructor(val binding: ItemChallengeBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -42,8 +41,6 @@ class ChallengeAdapter(val clickListener: ListChallengeClickListener) :
     }
 
 
-
-
 }
 
 class ListChallengeClickListener(val clickListener: (item: Challenge) -> Unit) {
@@ -52,9 +49,10 @@ class ListChallengeClickListener(val clickListener: (item: Challenge) -> Unit) {
 
 class ListChallengeDiffCallback : DiffUtil.ItemCallback<Challenge>() {
     override fun areItemsTheSame(oldItem: Challenge, newItem: Challenge): Boolean {
-        return oldItem.challengeId== newItem.challengeId
+        return oldItem.challengeId == newItem.challengeId
     }
 
     override fun areContentsTheSame(oldItem: Challenge, newItem: Challenge): Boolean {
         return oldItem == newItem
-    }}
+    }
+}

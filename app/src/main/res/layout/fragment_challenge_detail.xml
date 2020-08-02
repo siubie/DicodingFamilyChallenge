@@ -47,6 +47,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:text="Selesaikan Challenge"
+            android:onClick="@{()->challengeViewModel.onSelesaiChallenge(challenge)}"
             app:layout_constraintBottom_toTopOf="@+id/btnDeleteReward"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

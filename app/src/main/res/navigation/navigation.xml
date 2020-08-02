@@ -110,5 +110,8 @@
         <action
             android:id="@+id/action_historyDetailFragment_to_historyFragment"
             app:destination="@id/historyFragment" />
+        <argument
+            android:name="history"
+            app:argType="id.putraprima.keluargakolaborasi.ui.database.History" />
     </fragment>
 </navigation>

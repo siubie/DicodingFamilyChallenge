@@ -1,9 +1,11 @@
 package id.putraprima.keluargakolaborasi.ui.database
 
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 
+@Dao
 interface HistoryDao {
     @Insert
     fun insert(history: History)
@@ -19,6 +21,9 @@ interface HistoryDao {
 
     @Query("Select * from history order by historyId DESC")
     fun getAll(): LiveData<List<History>>
+
+    @Query("SELECT SUM(historyPoint) as total from history")
+    fun getCurrentPoint(): Int
 
     @Query("Select count(*) as total from history")
     fun countHistory(): LiveData<Int>

@@ -28,7 +28,9 @@ class ChallengeAddFragment : Fragment() {
         val application = requireNotNull(this.activity).application
         val rewardDao= KolaborasiDatabase.getInstance(application).RewardDao
         val challengeDao= KolaborasiDatabase.getInstance(application).ChallengeDao
-        val challengeViewModelFactory = ChallengeViewModelFactory(challengeDao,rewardDao,application)
+        val historyDao= KolaborasiDatabase.getInstance(application).HistoryDao
+
+        val challengeViewModelFactory = ChallengeViewModelFactory(challengeDao,rewardDao,historyDao,application)
         val challengeViewModel = ViewModelProvider(this,challengeViewModelFactory).get(ChallengeViewModel::class.java)
 
         binding.challengeViewModel =challengeViewModel

@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import id.putraprima.keluargakolaborasi.R
 import id.putraprima.keluargakolaborasi.databinding.FragmentChallengeBinding
+import id.putraprima.keluargakolaborasi.ui.database.HistoryDao
 import id.putraprima.keluargakolaborasi.ui.database.KolaborasiDatabase
 import id.putraprima.keluargakolaborasi.ui.reward.*
 
@@ -30,7 +31,8 @@ class ChallengeFragment : Fragment() {
         val application = requireNotNull(this.activity).application
         val rewardDao= KolaborasiDatabase.getInstance(application).RewardDao
         val challengeDao= KolaborasiDatabase.getInstance(application).ChallengeDao
-        val challengeViewModelFactory = ChallengeViewModelFactory(challengeDao,rewardDao,application)
+        val historyDao= KolaborasiDatabase.getInstance(application).HistoryDao
+        val challengeViewModelFactory = ChallengeViewModelFactory(challengeDao,rewardDao,historyDao,application)
         val challengeViewModel = ViewModelProvider(this,challengeViewModelFactory).get(ChallengeViewModel::class.java)
 
         binding.challengeViewModel =challengeViewModel
