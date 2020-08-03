@@ -19,13 +19,19 @@ class MenuFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_menu,container,false);
-        binding.btnReward.setOnClickListener {
-            it.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToRewardFragment())
+//        binding.btnReward.setOnClickListener {
+//            it.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToRewardFragment())
+//        }
+//        binding.btnStatistik.setOnClickListener {
+//            it.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToHistoryFragment())
+//        }
+//        binding.btnChallenge.setOnClickListener {
+//            it.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToChallengeFragment())
+//        }
+        binding.containerChallenge.setOnClickListener{
+            it.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToChallengeFragment())
         }
-        binding.btnStatistik.setOnClickListener {
-            it.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToHistoryFragment())
-        }
-        binding.btnChallenge.setOnClickListener {
+        binding.containerReward.setOnClickListener{
             it.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToChallengeFragment())
         }
         return binding.root
