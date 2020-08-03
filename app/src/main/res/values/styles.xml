@@ -1,10 +1,22 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="txtPutihMedium">
+        <item name="android:fontFamily">@font/dmsansbold</item>
+        <item name="android:textColor">@color/txtPutih</item>
+        <item name="android:textSize">21sp</item>
+    </style>
+
+    <style name="txtStyleAngkaBiru">
+        <item name="android:fontFamily">@font/dmsansbold</item>
+        <item name="android:textColor">@color/txtBlue</item>
+        <item name="android:textSize">21sp</item>
     </style>
 
 </resources>

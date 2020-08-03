@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimaryDark">#03156C</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="bgBlue">#03156C</color>
     <color name="bgBlueGradientStart">#08239B</color>
@@ -10,5 +10,7 @@
     <color name="bgPinkGradientEnd">#FC6B8A</color>
     <color name="bgBlueGradientTransparentStart">#08239CFF</color>
     <color name="bgBlueGradientTransparentEnd">#07249A</color>
+    <color name="txtPutih">#FFFFFF</color>
+    <color name="txtBlue">#00F5DF</color>
 
 </resources>
