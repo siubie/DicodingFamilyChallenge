@@ -32,7 +32,7 @@ class MenuFragment : Fragment() {
             it.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToChallengeFragment())
         }
         binding.containerReward.setOnClickListener{
-            it.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToChallengeFragment())
+            it.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToRewardFragment())
         }
         return binding.root
     }

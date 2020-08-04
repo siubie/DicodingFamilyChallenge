@@ -29,4 +29,14 @@
         <item name="android:textColor">@color/txtPutih</item>
         <item name="android:textSize">12sp</item>
     </style>
+    <style name="txtPutihItemRv">
+        <item name="android:fontFamily">@font/dmansregular</item>
+        <item name="android:textColor">@color/txtPutih</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="txtStyleAngkaBiruRv">
+        <item name="android:fontFamily">@font/dmsansbold</item>
+        <item name="android:textColor">@color/txtBlue</item>
+        <item name="android:textSize">15sp</item>
+    </style>
 </resources>

@@ -24,9 +24,9 @@ class ChallengeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_challenge, container, false)
-        binding.btnAddChallenge.setOnClickListener {
-                it.findNavController().navigate(ChallengeFragmentDirections.actionChallengeFragmentToChallengeAddFragment())
-        }
+//        binding.btnAddChallenge.setOnClickListener {
+//                it.findNavController().navigate(ChallengeFragmentDirections.actionChallengeFragmentToChallengeAddFragment())
+//        }
 
         val application = requireNotNull(this.activity).application
         val rewardDao= KolaborasiDatabase.getInstance(application).RewardDao
