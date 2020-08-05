@@ -1,10 +1,59 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="txtPutihMedium">
+        <item name="android:fontFamily">@font/dmsansbold</item>
+        <item name="android:textColor">@color/txtPutih</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="txtStyleAngkaBiru">
+        <item name="android:fontFamily">@font/dmsansbold</item>
+        <item name="android:textColor">@color/txtBlue</item>
+        <item name="android:textSize">21sp</item>
+    </style>
+
+    <style name="txtPutihJudul">
+        <item name="android:fontFamily">@font/dmsansbold</item>
+        <item name="android:textColor">@color/txtPutih</item>
+        <item name="android:textSize">26sp</item>
+    </style>
+    <style name="txtPutihDeskripsi">
+        <item name="android:fontFamily">@font/dmsansmedium</item>
+        <item name="android:textColor">@color/txtPutih</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="txtPutihItemRv">
+        <item name="android:fontFamily">@font/dmansregular</item>
+        <item name="android:textColor">@color/txtPutih</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="txtStyleAngkaBiruRv">
+        <item name="android:fontFamily">@font/dmsansbold</item>
+        <item name="android:textColor">@color/txtBlue</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="judulChallenge">
+        <item name="android:fontFamily">@font/dmsansbold</item>
+        <item name="android:textColor">@color/txtPutih</item>
+        <item name="android:textSize">21sp</item>
+    </style>
+
+    <style name="txtBiruChallenge">
+        <item name="android:textColor">@color/txtBlue</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="editTextStyle">
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:textColor">@color/txtPutih</item>
+        <item name="android:textColorHint">@color/txtPutih</item>
+    </style>
 </resources>

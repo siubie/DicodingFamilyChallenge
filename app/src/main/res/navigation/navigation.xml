@@ -17,22 +17,104 @@
             android:id="@+id/action_menuFragment_to_challengeFragment"
             app:destination="@id/challengeFragment" />
         <action
-            android:id="@+id/action_menuFragment_to_statistikFragment"
-            app:destination="@id/statistikFragment" />
+            android:id="@+id/action_menuFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
     <fragment
         android:id="@+id/rewardFragment"
         android:name="id.putraprima.keluargakolaborasi.ui.reward.RewardFragment"
         android:label="fragment_reward"
-        tools:layout="@layout/fragment_reward" />
+        tools:layout="@layout/fragment_reward" >
+        <action
+            android:id="@+id/action_rewardFragment_to_rewardAddFragment"
+            app:destination="@id/rewardAddFragment" />
+        <action
+            android:id="@+id/action_rewardFragment_to_rewardDetailFragment"
+            app:destination="@id/rewardDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/challengeFragment"
         android:name="id.putraprima.keluargakolaborasi.ui.challenge.ChallengeFragment"
         android:label="fragment_challenge"
-        tools:layout="@layout/fragment_challenge" />
+        tools:layout="@layout/fragment_challenge" >
+        <action
+            android:id="@+id/action_challengeFragment_to_challengeAddFragment"
+            app:destination="@id/challengeAddFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_challengeFragment_to_challengeDetailFragment"
+            app:destination="@id/challengeDetailFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
     <fragment
-        android:id="@+id/statistikFragment"
-        android:name="id.putraprima.keluargakolaborasi.ui.statistik.StatistikFragment"
-        android:label="fragment_statistik"
-        tools:layout="@layout/fragment_statistik" />
+        android:id="@+id/rewardAddFragment"
+        android:name="id.putraprima.keluargakolaborasi.ui.reward.RewardAddFragment"
+        android:label="RewardAddFragment" >
+        <action
+            android:id="@+id/action_rewardAddFragment_to_rewardFragment"
+            app:destination="@id/rewardFragment"
+            app:popUpTo="@id/rewardFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/rewardDetailFragment"
+        android:name="id.putraprima.keluargakolaborasi.ui.reward.RewardDetailFragment"
+        android:label="RewardDetailFragment" >
+        <action
+            android:id="@+id/action_rewardDetailFragment_to_rewardFragment"
+            app:destination="@id/rewardFragment"
+            app:popUpTo="@id/rewardFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="reward"
+            app:argType="id.putraprima.keluargakolaborasi.ui.database.Reward" />
+    </fragment>
+    <fragment
+        android:id="@+id/challengeAddFragment"
+        android:name="id.putraprima.keluargakolaborasi.ui.challenge.ChallengeAddFragment"
+        android:label="ChallengeAddFragment" >
+        <action
+            android:id="@+id/action_challengeAddFragment_to_challengeFragment"
+            app:destination="@id/challengeFragment"
+            app:popUpTo="@id/challengeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/challengeDetailFragment"
+        android:name="id.putraprima.keluargakolaborasi.ui.challenge.ChallengeDetailFragment"
+        android:label="ChallengeDetailFragment" >
+        <action
+            android:id="@+id/action_challengeDetailFragment_to_challengeFragment2"
+            app:destination="@id/challengeFragment"
+            app:popUpTo="@id/challengeFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="challenge"
+            app:argType="id.putraprima.keluargakolaborasi.ui.database.Challenge" />
+        <action
+            android:id="@+id/action_challengeDetailFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="id.putraprima.keluargakolaborasi.ui.history.HistoryFragment"
+        android:label="HistoryFragment" >
+        <action
+            android:id="@+id/action_historyFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_historyDetailFragment"
+            app:destination="@id/historyDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyDetailFragment"
+        android:name="id.putraprima.keluargakolaborasi.ui.history.HistoryDetailFragment"
+        android:label="HistoryDetailFragment" >
+        <action
+            android:id="@+id/action_historyDetailFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+        <argument
+            android:name="history"
+            app:argType="id.putraprima.keluargakolaborasi.ui.database.History" />
+    </fragment>
 </navigation>

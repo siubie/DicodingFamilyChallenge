@@ -4,23 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="rewardViewModel"
+            type="id.putraprima.keluargakolaborasi.ui.reward.RewardViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/bgBlue"
         tools:context=".ui.reward.RewardFragment">
 
         <!-- TODO: Update blank fragment layout -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Reward Fragment"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerRvChallenge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="64dp"
+            android:background="@drawable/gradient_blue_transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txtDeskripsiRewardFragment"
+                style="@style/judulChallenge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Reward"
+                app:layout_constraintBottom_toTopOf="@+id/rvReward"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvReward"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtDeskripsiRewardFragment"
+                tools:listitem="@layout/item_reward" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/rvReward"
+                app:layout_constraintEnd_toStartOf="@+id/txtAddReward"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/add_btn" />
+
+            <TextView
+                android:id="@+id/txtAddReward"
+                style="@style/txtBiruChallenge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Tambah Reward"
+                app:layout_constraintBottom_toTopOf="@+id/rvReward"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

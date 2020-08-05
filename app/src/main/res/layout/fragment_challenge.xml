@@ -4,23 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+            <variable
+                name="challengeViewModel"
+                type="id.putraprima.keluargakolaborasi.ui.challenge.ChallengeViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.challenge.ChallengeFragment">
+        tools:context=".ui.challenge.ChallengeFragment"
+        android:background="@color/bgBlue"
+        >
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Challenge Fragment"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerRvChallenge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="64dp"
+            android:background="@drawable/gradient_blue_transparent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txtDeskripsiChallengeFragment"
+                style="@style/judulChallenge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Challenge"
+                app:layout_constraintBottom_toTopOf="@+id/rvChallenge"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/containerRvChallenge" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvChallenge"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtDeskripsiChallengeFragment"
+
+                tools:listitem="@layout/item_challenge" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/rvChallenge"
+                app:layout_constraintEnd_toStartOf="@+id/txtAddChallenge"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/add_btn" />
+
+            <TextView
+                android:id="@+id/txtAddChallenge"
+                style="@style/txtBiruChallenge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tambah Challenge"
+                app:layout_constraintBottom_toTopOf="@+id/rvChallenge"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
