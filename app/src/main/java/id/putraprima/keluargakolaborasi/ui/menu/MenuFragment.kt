@@ -43,7 +43,11 @@ class MenuFragment : Fragment() {
         binding.containerReward.setOnClickListener{
             it.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToRewardFragment())
         }
-        binding.btnStatistik.setOnClickListener {
+//        binding.btnStatistik.setOnClickListener {
+//            it.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToHistoryFragment())
+//        }
+
+        binding.containerStats.setOnClickListener {
             it.findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToHistoryFragment())
         }
 
