@@ -91,6 +91,9 @@
         <argument
             android:name="challenge"
             app:argType="id.putraprima.keluargakolaborasi.ui.database.Challenge" />
+        <action
+            android:id="@+id/action_challengeDetailFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"

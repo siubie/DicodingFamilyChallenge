@@ -37,13 +37,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:fontFamily="@font/dmsansbold"
                 android:text="Challenge"
-                android:textColor="@color/txtPutih"
-                android:textSize="21sp"
                 app:layout_constraintBottom_toTopOf="@+id/rvChallenge"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/containerRvChallenge" />
+                app:layout_constraintTop_toTopOf="@id/containerRvChallenge"
+                style="@style/judulChallenge" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvChallenge"
@@ -76,24 +74,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tambah Challenge"
-                android:textColor="@color/txtBlue"
-                android:textSize="15sp"
                 app:layout_constraintBottom_toTopOf="@+id/rvChallenge"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/txtBiruChallenge" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-<!--        <Button-->
-<!--            android:id="@+id/btnAddChallenge"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="60dp"-->
-<!--            android:layout_marginStart="16dp"-->
-<!--            android:layout_marginEnd="16dp"-->
-<!--            android:layout_marginBottom="8dp"-->
-<!--            android:text="Tambah Challenge"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

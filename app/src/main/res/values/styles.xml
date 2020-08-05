@@ -39,4 +39,15 @@
         <item name="android:textColor">@color/txtBlue</item>
         <item name="android:textSize">15sp</item>
     </style>
+
+    <style name="judulChallenge">
+        <item name="android:fontFamily">@font/dmsansbold</item>
+        <item name="android:textColor">@color/txtPutih</item>
+        <item name="android:textSize">21sp</item>
+    </style>
+
+    <style name="txtBiruChallenge">
+        <item name="android:textColor">@color/txtBlue</item>
+        <item name="android:textSize">15sp</item>
+    </style>
 </resources>

@@ -26,10 +26,9 @@ interface ChallengeDao {
     @Query("Select * from challenge order by challengeId DESC")
     fun getAll() : LiveData<List<Challenge>>
 
-
     @Query("Select count(*) as total from challenge")
-    fun countReward() : LiveData<Int>
+    fun countChallenge() : LiveData<Int>
 
     @Query("Select * from challenge order by challengeId DESC LIMIT 1")
-    fun getLatestReward() : LiveData<Challenge>
+    fun getLatestChallenge() : LiveData<Challenge>
 }

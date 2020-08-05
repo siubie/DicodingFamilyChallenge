@@ -49,16 +49,14 @@ class ChallengeDetailFragment : Fragment() {
             selesai?.let {
                 if (selesai) {
                     view?.let { view ->
-                        Snackbar.make(
-                            binding.root,
-                            "Berhasil Selesaikan Challenge",
-                            Snackbar.LENGTH_SHORT
-                        ).show()
+                        view.findNavController().navigate(ChallengeDetailFragmentDirections.actionChallengeDetailFragmentToMenuFragment())
+                        challengeViewModel.onNavigatedToMenu()
                     }
                 }
             }
 
         })
+
         return binding.root
     }
 

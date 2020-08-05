@@ -25,6 +25,21 @@ interface HistoryDao {
     @Query("SELECT SUM(historyPoint) as total from history")
     fun getCurrentPoint(): Int
 
+    @Query("SELECT SUM(historyPoint) as total from history")
+    fun getCurrentPointLive():LiveData<Int>
+
     @Query("Select count(*) as total from history")
     fun countHistory(): LiveData<Int>
+
+    @Query("Select count(*) as total from history where historyPoint > 0")
+    fun countChallengeSelesai(): LiveData<Int>
+
+    @Query("Select SUM(historyPoint) as total from history where historyPoint > 0")
+    fun countTotalPoin(): LiveData<Int>
+
+//    @Query("Select count(historyPoint) as total from history")
+//    fun countTotalPoin(): LiveData<Int>
+
+    @Query("Select count(*) as total from history where historyPoint < 0")
+    fun countRewardSelesai(): LiveData<Int>
 }

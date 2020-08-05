@@ -34,6 +34,7 @@ class ChallengeViewModel(
     val currentChallengeName = MutableLiveData<String>()
     val currentChallengePoint = MutableLiveData<String>()
 
+
     fun onNavigatedToList() {
         _navigateToList.value = null
     }
@@ -85,6 +86,10 @@ class ChallengeViewModel(
             onInsertHistory(historyItem)
             _selesaiChallenge.value = true
         }
+    }
+
+    fun onNavigatedToMenu() {
+        _selesaiChallenge.value = null
     }
 
     private suspend fun onInsertHistory(item: History) {
