@@ -42,12 +42,21 @@ class RewardViewModel(
         rewardViewModelJob.cancel()
     }
 
+    private val _invalidInput = MutableLiveData<Boolean>()
+    val invalidInput: LiveData<Boolean>
+        get() = _invalidInput
+
     fun onInsertReward() {
         uiScope.launch {
-            val newReward =
-                Reward(0L, currentRewardName.value!!, currentRewardPoint.value!!.toInt())
-            insert(newReward)
-            _navigateToList.value = true
+            if ((currentRewardName.value != null) && (currentRewardPoint.value != null)) {
+                val newReward =
+                    Reward(0L, currentRewardName.value!!, currentRewardPoint.value!!.toInt())
+                insert(newReward)
+                _navigateToList.value = true
+                _invalidInput.value = null
+            } else {
+                _invalidInput.value = true
+            }
         }
     }
 
@@ -131,4 +140,5 @@ class RewardViewModel(
             history.getCurrentPoint()
         }
     }
+
 }

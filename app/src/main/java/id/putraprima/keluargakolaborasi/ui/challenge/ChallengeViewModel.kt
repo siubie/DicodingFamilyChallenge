@@ -33,7 +33,9 @@ class ChallengeViewModel(
 
     val currentChallengeName = MutableLiveData<String>()
     val currentChallengePoint = MutableLiveData<String>()
-
+    private val _invalidInput = MutableLiveData<Boolean>()
+    val invalidInput: LiveData<Boolean>
+        get() = _invalidInput
 
     fun onNavigatedToList() {
         _navigateToList.value = null
@@ -50,10 +52,15 @@ class ChallengeViewModel(
 
     fun onInsertChallenge() {
         uiScope.launch {
-            val newChallenge =
-                Challenge(0L, currentChallengeName.value!!, currentChallengePoint.value!!.toInt())
-            insert(newChallenge)
-            _navigateToList.value = true
+            if ((currentChallengeName.value != null) && (currentChallengePoint != null)){
+                val newChallenge =
+                    Challenge(0L, currentChallengeName.value!!, currentChallengePoint.value!!.toInt())
+                insert(newChallenge)
+                _navigateToList.value = true
+                _invalidInput.value = null
+            } else{
+                _invalidInput.value = true
+            }
         }
     }
 

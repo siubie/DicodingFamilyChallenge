@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import com.google.android.material.snackbar.Snackbar
 import id.putraprima.keluargakolaborasi.R
 import id.putraprima.keluargakolaborasi.databinding.FragmentChallengeAddBinding
 import id.putraprima.keluargakolaborasi.databinding.FragmentChallengeDetailBinding
@@ -39,6 +40,12 @@ class ChallengeAddFragment : Fragment() {
             navigate?.let {
                 view?.findNavController()!!.navigate(ChallengeAddFragmentDirections.actionChallengeAddFragmentToChallengeFragment())
                 challengeViewModel.onNavigatedToList()
+            }
+        })
+        challengeViewModel.invalidInput.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                Snackbar.make(binding.root, "Mohon isi semua data", Snackbar.LENGTH_SHORT)
+                    .show()
             }
         })
         return binding.root
