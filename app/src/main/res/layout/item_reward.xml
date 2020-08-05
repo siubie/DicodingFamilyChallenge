@@ -20,16 +20,18 @@
 
         <TextView
             android:id="@+id/txtRewardName"
+            style="@style/txtPutihItemRv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:text="@{reward.rewardName}"
-            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageView6"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txtRewardPoint"
+            style="@style/txtStyleAngkaBiruRv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -37,5 +39,15 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/itemchallenge" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

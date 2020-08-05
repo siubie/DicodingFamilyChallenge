@@ -50,4 +50,10 @@
         <item name="android:textColor">@color/txtBlue</item>
         <item name="android:textSize">15sp</item>
     </style>
+
+    <style name="editTextStyle">
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:textColor">@color/txtPutih</item>
+        <item name="android:textColorHint">@color/txtPutih</item>
+    </style>
 </resources>

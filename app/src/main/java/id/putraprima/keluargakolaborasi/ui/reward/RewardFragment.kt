@@ -59,7 +59,7 @@ class RewardFragment : Fragment() {
 
 
         binding.rvReward.adapter = adapter
-        binding.btnAddReward.setOnClickListener {
+        binding.txtAddReward.setOnClickListener {
             it.findNavController()
                 .navigate(RewardFragmentDirections.actionRewardFragmentToRewardAddFragment())
         }

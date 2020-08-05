@@ -34,14 +34,14 @@
 
             <TextView
                 android:id="@+id/txtDeskripsiChallengeFragment"
+                style="@style/judulChallenge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:text="Challenge"
                 app:layout_constraintBottom_toTopOf="@+id/rvChallenge"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/containerRvChallenge"
-                style="@style/judulChallenge" />
+                app:layout_constraintTop_toTopOf="@id/containerRvChallenge" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvChallenge"
@@ -71,13 +71,13 @@
 
             <TextView
                 android:id="@+id/txtAddChallenge"
+                style="@style/txtBiruChallenge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tambah Challenge"
                 app:layout_constraintBottom_toTopOf="@+id/rvChallenge"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                style="@style/txtBiruChallenge" />
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
